@@ -1,0 +1,27 @@
+services:
+  loadbalancer:
+    image: nginx:alpine
+    ports:
+      - "127.0.0.1:22222:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./frontend:/usr/share/nginx/html:ro
+    depends_on:
+      - core-service
+      - date-service
+
+  core-service:
+    image: alpine:latest
+    volumes:
+      - ./bin/core-service:/usr/local/bin/core-service:ro
+    command: ["/usr/local/bin/core-service"]
+    expose:
+      - "80"
+
+  date-service:
+    image: alpine:latest
+    volumes:
+      - ./bin/date-service:/usr/local/bin/date-service:ro
+    command: ["/usr/local/bin/date-service"]
+    expose:
+      - "80"
