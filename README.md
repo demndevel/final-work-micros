@@ -1,4 +1,6 @@
-# Итоговая проверочная работа
+# Итоговая проверочная работа / Газизов Эмиль 609-23
+
+# Вся теория с практикой [здесь](https://github.com/demndevel/final-work-micros/blob/main/Theory_Answers_3.MD)
 
 ---
 
